@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll() // 로그인, 회원가입은 인증 없이 허용
-                        .requestMatchers("/static/**", "/css/**", "/js/**").permitAll() // 정적 파일 허용
+                        .requestMatchers("/", "/index.html", "/favicon.ico", "/js/**", "/css/**", "/assets/**").permitAll()
                         .requestMatchers("/ws-stomp/**").permitAll() //
                         .requestMatchers("/users/me").authenticated() // /users/me 경로는 인증 필요
                         .anyRequest().authenticated() // 그 외 모든 요청은 인증 필요
